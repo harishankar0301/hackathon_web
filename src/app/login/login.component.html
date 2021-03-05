@@ -6,14 +6,14 @@
             <br>
             Don't have a account? <a routerLink="/signup">Sign up</a>
         </p>
-        <form>
+        <form #Form1="ngForm" (ngSubmit)="submitform(Form1.form)">
             <div class="mb-3">
               <label for="inputEmail" class="form-label">Email address</label>
-              <input type="email" class="form-control" name="emailId" id="inputEmail">
+              <input type="email" class="form-control" ngModel name="emailId" id="inputEmail">
             </div>
             <div class="mb-3">
               <label for="inputPassword" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password" id="inputPassword">
+              <input type="password" class="form-control" ngModel name="password" id="inputPassword">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a routerLink="/changepassword" class="btn btn-secondary ms-3">Forgot Password</a>
