@@ -7,9 +7,15 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
+import { ViewPhotoComponent } from './view-photo/view-photo.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [ 
-    AppComponent
+    AppComponent, NavbarComponent, SignupComponent, LoginComponent, UploadPhotoComponent, ViewPhotoComponent, ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
