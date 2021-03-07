@@ -5,15 +5,19 @@ import { SignupComponent } from './signup/signup.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
 import { ViewPhotoComponent } from './view-photo/view-photo.component';
+import { HomeComponent } from './home/home.component';
+import { CarListingComponent } from './car-listing/car-listing.component';
+
 const routes: Routes = [
-  {path: '', component: SignupComponent},
+  {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'listing', component: CarListingComponent},
   {path: 'login', component: LoginComponent},
   {path: 'upload', component: UploadPhotoComponent},
   {path: 'view', component: ViewPhotoComponent},
   {path: 'logout', redirectTo: ''},
   {path: 'changepassword', component:ChangePasswordComponent},
-  {path: '**', component: SignupComponent}
+  {path: '**', component: HomeComponent}
 ];
 
 @NgModule({

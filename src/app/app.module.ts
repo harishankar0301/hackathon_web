@@ -13,9 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
 import { ViewPhotoComponent } from './view-photo/view-photo.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { HomeComponent } from './home/home.component';
+import { CarListingComponent } from './car-listing/car-listing.component';
 @NgModule({
   declarations: [ 
-    AppComponent, NavbarComponent, SignupComponent, LoginComponent, UploadPhotoComponent, ViewPhotoComponent, ChangePasswordComponent
+    AppComponent, NavbarComponent, SignupComponent, LoginComponent, UploadPhotoComponent, ViewPhotoComponent, ChangePasswordComponent, HomeComponent, CarListingComponent
   ],
   imports: [
     BrowserModule,
