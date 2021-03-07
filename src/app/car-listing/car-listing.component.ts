@@ -19,9 +19,18 @@ export class CarListingComponent implements OnInit {
 
   }
 
-  booking(){
+  booking(uid) {
+    let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
     let modal = document.getElementById('bookingButton');
+    this.http.post('http://localhost:3000/api/book', { email: sessioninfo["email"], uid: uid }).subscribe(res => {
+      console.log(res);
+
+    })
     modal.click();
+
+  }
+  okay() {
+    window.location.reload();
   }
 
 

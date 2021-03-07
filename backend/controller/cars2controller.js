@@ -46,5 +46,6 @@ module.exports = function (app) {
 
         orm.query(`update cars set isrented=1 where uid='${uid}' `);
         orm.query(`insert into rented values ('${uid}','${email}')`);
+        res.send({ resp: "SUCCESS" });
     })
 }

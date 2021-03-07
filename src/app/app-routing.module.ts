@@ -7,7 +7,8 @@ import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
 import { ViewPhotoComponent } from './view-photo/view-photo.component';
 import { HomeComponent } from './home/home.component';
 import { CarListingComponent } from './car-listing/car-listing.component';
-
+import { NewCarComponent } from './new-car/new-car.component';
+import { from } from 'rxjs';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
@@ -16,8 +17,10 @@ const routes: Routes = [
   {path: 'upload', component: UploadPhotoComponent},
   {path: 'view', component: ViewPhotoComponent},
   {path: 'logout', redirectTo: ''},
-  {path: 'changepassword', component:ChangePasswordComponent},
-  {path: '**', component: HomeComponent}
+  { path: 'changepassword', component: ChangePasswordComponent },
+  { path: 'addcar', component: NewCarComponent },
+  { path: '**', component: HomeComponent }
+
 ];
 
 @NgModule({
