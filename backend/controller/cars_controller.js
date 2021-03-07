@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 module.exports = function (app) {
 
 
@@ -30,4 +31,15 @@ module.exports = function (app) {
         );
         next();
     });
+    
+    app.post('/api/carsup', function (req, res) {
+        let model = req.body.model;
+        let uid = uuidv4();
+        let isrented = req.body.isrented;
+        let pic = req.body.pic;
+        let owner = req.body.owner;
+        let price = req.body.price;
+        orm.query(`INSERT INTO cars (model,uid,isrented,pic,owner,price) values('${model}','${uid}','${isrented}','${pic}','${owner}','${price}')`);
+        res.send({ resp: "SUCCESS" });
+      });
 }
