@@ -1,6 +1,6 @@
-# HackathonAcm
+# Hackathon Acm CEG
 
-This project is a simple login system made using:
+This project is a simple Car rental system made using:
 Angular
 Node JS
 Mysql
