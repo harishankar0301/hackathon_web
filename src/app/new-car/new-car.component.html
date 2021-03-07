@@ -4,8 +4,7 @@
         <h3>Add car to be listed for renting</h3>
     </span>
     <div class="card p-4 w-md-50">
-        <form #Form1="ngForm">
-        <!-- (ngSubmit)="submitform(Form1.form)"> -->
+        <form #Form1="ngForm" (ngSubmit)="submitform(Form1.form)">
             <div class="mb-3">
                 <label for="inputModel" class="form-label">Car Brand and Model</label>
                 <input type="text" class="form-control" ngModel name="model" id="inputModel">
