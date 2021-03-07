@@ -11,6 +11,12 @@ export class NewCarComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
+    if (!sessioninfo) {
+      alert("Please login")
+      this.router.navigate([`/login`]);
+    }
+
   }
   submitform(form) {
 

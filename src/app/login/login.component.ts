@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:3000/api/loginv', { email: form.value.emailId, password: form.value.password }).subscribe(res => {
       console.log(res);
       if (res['resp'] == "AUTHORIZED") {
-        this.router.navigate([`/view`]);
+        this.router.navigate([`/listing`]);
         sessionStorage.setItem('info',JSON.stringify({email: form.value.emailId}))
 
       } else {

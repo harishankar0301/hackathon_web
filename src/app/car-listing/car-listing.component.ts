@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Router } from '@angular/router'
+
 @Component({
   selector: 'app-car-listing',
   templateUrl: './car-listing.component.html',
   styleUrls: ['./car-listing.component.css']
 })
 export class CarListingComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   carlist = [];
   ngOnInit(): void {
@@ -20,7 +22,11 @@ export class CarListingComponent implements OnInit {
   }
 
   booking(uid) {
-    let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
+     let sessioninfo = JSON.parse(sessionStorage.getItem('info'));
+    if (!sessioninfo) {
+      alert("Please login")
+      this.router.navigate([`/login`]);
+    }
     let modal = document.getElementById('bookingButton');
     this.http.post('http://localhost:3000/api/book', { email: sessioninfo["email"], uid: uid }).subscribe(res => {
       console.log(res);
