@@ -3,15 +3,15 @@
         Car Listings
     </h1>
     <h3 class="text-center">View and choose which car to hire</h3>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 <div *ngFor="let car of carlist" class="col">
-            <div class="card">
+            <div class="card h-100">
                 <img [src]="car.pic" alt="car" class="card-img-top">
-                <div class="card-body p-2">
-                    <h5 class="card-title">{{car.model}}</h5>
-                    <p class="card-body">Price: ₹{{car.price}}/week</p>
-                    <button class="btn btn-primary" (click)="booking()">Book Now</button>
-                    <button class="btn btn-secondary ms-2" disabled>Booked</button>
+                <div class="card-body d-flex flex-column justify-content-end p-2">
+                    <h5 class="card-title text-center text-uppercase">{{car.model}}</h5>
+                    <p class="card-text">Price: ₹{{car.price}}/week</p>
+                    <button *ngIf='!car.isrendted' class="btn btn-primary" (click)="booking()">Book Now</button>
+                    <button *ngIf='car.isrendted' class="btn btn-secondary" disabled>Booked</button>
                 </div>
             </div>
         </div>
