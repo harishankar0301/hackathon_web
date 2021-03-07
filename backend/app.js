@@ -3,7 +3,7 @@ var app = express();
 const path = require("path");
 var fs = require("fs");
 var controller = require("./controller/controller");
-
+var cars_controller = require("./controller/cars_controller");
 var current_user = '';
 global.current_user = current_user;
 
@@ -12,7 +12,7 @@ require('dotenv').config()
 
 //firing controllers
 controller(app);
-
+cars_controller(app);
 
 var Sequelize = require("sequelize");
 global.Sequelize = Sequelize;
