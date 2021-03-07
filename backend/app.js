@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 const path = require("path");
-
+var fs = require("fs");
 var controller = require("./controller/controller");
 
 var current_user = '';
@@ -51,7 +51,33 @@ orm
     console.error("Unable to connect to the database:", err);
   });
 
- global.orm = orm;
+const db = orm.define("users", {
+  email: {
+    type: Sequelize.STRING,
+    primaryKey: true
+  },
+  name: {
+    type: Sequelize.STRING
+  },
+  password: {
+    type: Sequelize.STRING
+  },
+  image: {
+    type: Sequelize.BLOB("long"),
+  },
+  
+},{
+  timestamps: false
+})
+
+
+// db.findAll({
+//   attributes: ['image'],
+//   where: { 'email': "harishankar0301@gmail.com" }
+// }).then((data1) => { console.log(data1) });
+
+global.orm = orm;
+global.db = db;
 
 // ***********************************************************************************************************************
 //Routing frontend to angular

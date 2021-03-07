@@ -1,13 +1,9 @@
 module.exports = function (app) { 
 
 
-  // exports.mailto = function (eadd) {
-
-//   };
-
 
   var { QueryTypes } = require("sequelize");
-
+  var Buffer = require('safe-buffer').Buffer
   var multer = require("multer");
   var path = require("path");
   var fs = require("fs");
@@ -51,7 +47,41 @@ module.exports = function (app) {
 
   const upload = multer({ storage: storage });
 
+  app.post("/multipleFiles/:mail", upload.array("files"), (req, res, next) => {
+    let email = req.params.mail;
+    console.log(email);
+    const files = req.files;
+    files.forEach(async (element) => {
+      db.update({
+        image: fs.readFileSync(`./uploads/${element.originalname}`)
+      }, {
+        where: {
+          email: email
+        }
 
+      })
+    })
+
+  });
+
+  app.get("/api/view/:mail", function (req, res) {
+    let email = req.params.mail;
+    orm.query(`select image from users where email='${email}'`, { type: QueryTypes.SELECT }).then(function (op) {
+      //console.log(op[0]['image'].toString('base64'));
+      // res.send(op[0]['image']);
+     
+      // console.log(op[0]['image']);
+      // let blob1 = new Blob(op[0]['image']).toString('base64');
+      // console.log(blob1);
+      // let respp = Buffer.from(op[0]['image'], 'binary').toString('base64');
+      // console.log(respp);
+      let buff = new Buffer(op[0]['image'], 'binary');
+      let base64data = buff.toString('base64');
+      res.send({ resp: base64data});
+      // res.send(base64data);
+
+    })
+  })
   app.post('/api/loginv', function (req, res) {
     let email = req.body.email;
     let pwd = req.body.password;
@@ -113,13 +143,6 @@ module.exports = function (app) {
       }
     });
   })
-  // app.post("/multipleFiles", upload.array("files"), (req, res, next) => {
 
-  //   const files = req.files;
-  //   files.forEach(async (element) => {
-  //     console.log(element.originalname);
-  //   })
-  // });
-  // app.post('/api/reset',function())
 
 }

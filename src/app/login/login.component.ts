@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if (res['resp'] == "AUTHORIZED") {
         this.router.navigate([`/view`]);
+        sessionStorage.setItem('info',JSON.stringify({email: form.value.emailId}))
 
       } else {
         alert("Not authorized");

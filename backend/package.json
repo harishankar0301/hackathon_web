@@ -16,6 +16,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "nodemailer": "^6.5.0",
+    "safe-buffer": "^5.2.1",
     "sequelize": "^6.5.0"
   }
 }

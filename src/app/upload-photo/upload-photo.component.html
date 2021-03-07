@@ -5,10 +5,11 @@
         <form>
             <div class="mb-3">
               <label for="inputImage" class="form-label">Upload Image</label>
-              <input type="file" class="form-control" name="image" id="inputImage" aria-describedby="imageHelp">
+            <input type="file" class="form-control" name="image" multiple (change)="selectMultipleImage($event)" id="inputImage"
+                aria-describedby="imageHelp">
               <div id="imageHelp" class="form-text">Upload the image in this portal to store.</div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" (click)="onMultipleSubmit()">Submit</button>
         </form>
     </div>
 </div>
