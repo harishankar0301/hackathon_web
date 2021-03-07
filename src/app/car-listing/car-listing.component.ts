@@ -12,4 +12,10 @@ export class CarListingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  booking(){
+    let modal = document.getElementById('bookingButton');
+    modal.click();
+  }
+
+
 }
