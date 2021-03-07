@@ -35,7 +35,7 @@ module.exports = function (app) {
         orm.query(`select * from cars `, { type: QueryTypes.SELECT }).then(
             function (op) {
                 console.log(op);
-                res.send(op);
+                res.send({ resp: op });
             }
         )
     })

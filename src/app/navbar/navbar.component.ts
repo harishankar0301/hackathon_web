@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn: boolean;
 
-  constructor() { 
+  constructor(private router: Router) {
     this.isLoggedIn = false;
   }
 
@@ -17,6 +17,11 @@ export class NavbarComponent implements OnInit {
     if(JSON.parse(sessionStorage.getItem('info'))){
       this.isLoggedIn = true;
     }
+  }
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate([`/`]);
+
   }
 
 }

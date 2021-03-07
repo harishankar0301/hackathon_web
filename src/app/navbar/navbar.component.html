@@ -19,7 +19,7 @@
             <a class="nav-link" routerLink="signup" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-bs-toggle="collapse" data-bs-target="#navbarNav">Signup</a>
           </li>
           <li class="nav-item" *ngIf=(isLoggedIn)>
-            <a class="nav-link" routerLink="/logout" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-bs-toggle="collapse" data-bs-target="#navbarNav">Logout</a>
+            <a class="nav-link" (click)="logout()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-bs-toggle="collapse" data-bs-target="#navbarNav">Logout</a>
           </li>
         </ul>
       </div>
