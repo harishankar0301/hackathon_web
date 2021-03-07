@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 #uplods folder
-/backed/uplods
+/backend/uploads
