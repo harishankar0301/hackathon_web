@@ -120,16 +120,17 @@ module.exports = function (app) {
     let email = req.body.email;
     var nodemailer = require('nodemailer');
 
+    //Give your sender email id and password here also disable unsafe apps or similar setting in mail provider
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'ssquarecsquare@gmail.com',
-        pass: 'rkacmceg'
+        user: 'example@gmail.com',
+        pass: 'your password'
       }
     });
 
     var mailOptions = {
-      from: 'ssquarecsquare@gmail.com',
+      from: 'example@gmail.com',
       to: email,
       subject: 'Forgot Password',
       text: 'Forgot Password'
